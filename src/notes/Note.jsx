@@ -1,7 +1,7 @@
 function Note({
     data,
     addToFavorite,
-    setEdit,
+    editNote,
     deleteNote
 }) {
 
@@ -12,14 +12,17 @@ function Note({
             <div className="note-content">{data.content}</div>
             <div className="note-actions">
 
+                {/** ADD OR REMOVE FROM FAVORITES */}
                 <button onClick={() => addToFavorite(data.id)}
                 type="button"
                 className="note-btn">{data.favorite ? "★" : "☆"}</button>
 
-                <button onClick={() => setEdit({...data, edit: true})}
+                {/** OPEN AND EDIT NOTE */}
+                <button onClick={() => editNote({...data, edit: true})}
                 type="button"
                 className="note-btn">✎</button>
 
+                {/** DELETE NOTE */}
                 <button onClick={() => deleteNote(data.id)}
                 type="button"
                 className="note-btn">🗑</button>

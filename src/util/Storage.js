@@ -1,7 +1,8 @@
-function saveData(name, data) {
+// SAVE DATA TO LOCALSTORAGE
+const saveData = (name, data) =>
     localStorage.setItem(name, JSON.stringify(data));
-}
 
+// LOAD DATA FROM LOCALSTORAGE
 function loadData(name) {
 
     try {

@@ -10,13 +10,14 @@ function NoteList({
     return (
         <div className="note-list">
 
+            {/** DISPLAY NOTES LIST */}
             {notes.map(n => {
                 
                 return <Note
                 key={n.id}
                 data={n}
                 addToFavorite={addToFavorite}
-                setEdit={setEdit}
+                editNote={setEdit}
                 deleteNote={deleteNote}
                 />
             })}

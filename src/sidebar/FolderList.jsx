@@ -9,6 +9,7 @@ function FolderList({
     return (
         <div className="folder-list">
 
+            {/** DISPLAY FOLDERS LIST */}
             {folders.map(f => {
 
                 return <Folder

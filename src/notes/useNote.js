@@ -8,6 +8,7 @@ function useNote() {
     const [loaded, setLoaded] = useState(false);
     const [edit, setEdit] = useState({});
 
+    // LOAD NOTES FROM LOCALSTORAGE
     useEffect(() => {
 
         const data = loadData("notes");
@@ -15,12 +16,14 @@ function useNote() {
         setLoaded(true);
     }, []);
 
+    // SAVE NOTES TO LOCALSTORAGE
     useEffect(() => {
 
         if ( !loaded ) return;
         saveData("notes", notes);
     }, [notes]);
 
+    // ADD OR REMOVE NOTE FROM FAVORITES
     function addToFavorite(id) {
 
         setNotes(prev => prev.map(n =>
@@ -28,15 +31,14 @@ function useNote() {
         ));
     }
 
-    function deleteNote(id) {
+    // DELETE NOTE
+    const deleteNote = (id) =>
+        setNotes(prev => prev.filter(n => n.id !== id));
 
-        setNotes(prev => prev.filter(n =>
-            n.id !== id
-        ));
-    }
-
+    // SAVE NOTE
     function saveNote(name, content, folderid) {
 
+        // SAVE EDITED NOTE
         if ( edit?.edit ) {
 
             setNotes(prev => prev.map(n =>
@@ -52,6 +54,7 @@ function useNote() {
             return;
         }
 
+        // CREATE AND SAVE NEW NOTE
         const note = {
             name: name,
             content: content,

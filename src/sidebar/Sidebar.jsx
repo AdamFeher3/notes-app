@@ -17,12 +17,14 @@ function Sidebar({
             <div className="side">
                 <div className="side-title">View</div>
                 <div className="side-list">
-                    
+
+                    {/** SHOW ALL NOTES */}
                     <button onClick={e => setView(e.target.value)}
                     value="all"
                     type="button"
                     className="side-btn">➤ All</button>
 
+                    {/** SHOW FAVORITE NOTES */}
                     <button onClick={e => setView(e.target.value)}
                     value="favorites"
                     type="button"
@@ -34,12 +36,14 @@ function Sidebar({
                 <div className="side-title">Folders</div>
                 <div className="side-list">
 
+                    {/** OPEN NEW FOLDER EDITOR */}
                     <button onClick={() => setNewFolder(!newFolder)}
                     type="button"
                     className="new-folder-btn">+ New Folder</button>
 
                     {newFolder && <div className="new-folder">
 
+                        {/** FOLDER NAME INPUT */}
                         <input onChange={e => setFolderName(e.target.value)}
                         value={folderName}
                         placeholder="Enter folder name..."
@@ -48,6 +52,7 @@ function Sidebar({
 
                         <div className="new-folder-actions">
 
+                            {/** SAVE NEW FOLDER */}
                             <button onClick={() => {
                                 if ( folderName.trim() === "" ) return;
                                 saveFolder(folderName);
@@ -57,6 +62,7 @@ function Sidebar({
                             type="button"
                             className="new-folder-action-btn">✓</button>
 
+                            {/** CANCEL AND CLOSE FOLDER EDITOR */}
                             <button onClick={() => {
                                 setNewFolder(false);
                                 setFolderName("");

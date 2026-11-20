@@ -7,6 +7,7 @@ function Folder({
     return (
         <div className="folder">
 
+            {/** OPEN FOLDER */}
             <span>📁</span>
             <button onClick={() => setView(data.id)}
             type="button"
@@ -14,6 +15,7 @@ function Folder({
 
             <div className="folder-action">
 
+                {/** DELETE FOLDER */}
                 <button onClick={() => deleteFolder(data.id)}
                 type="button"
                 className="delete-folder-btn">🗑</button>

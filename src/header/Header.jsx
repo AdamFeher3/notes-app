@@ -8,12 +8,13 @@ function Header({
 
     return (
         <header className="header">
-
+            
             <Search
             value={search}
             onChange={setSearch}
             />
-
+            
+            {/** OPEN NEW NOTE EDITOR */}
             <button onClick={() => setOpenNote(true)}
             type="button"
             className="new-note-btn">+</button>
